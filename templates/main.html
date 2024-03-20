@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+<h3 class="container d-flex align-items-center justify-content-center my-4">Background Remover</h3>
+<div class="container my-5 cente">
+  <form action="/fi" method="post" enctype="multipart/form-data">
+    <div class="input-group">
+      <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+        aria-label="Upload" name="hfile" required>
+      <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">SUBMIT</button>
+    </div>
+  </form>
+
+  {% if output_f %}
+  <img src="{{output_f}}" class="img-fluid container mt-3" alt="..." id="imageid">
+  <button class="btn btn-success container d-flex align-items-center justify-content-center" onclick="downloadFile('{{output_f}}')">Download</button>
+  {% endif %}
+</div>
+
+<!-- <script>
+  let img = document.getElementById('imageid'); 
+//or however you get a handle to the IMG
+let width = img.width
+let height = img.height
+
+console.log(width, height)
+
+img.style.width = width;
+img.style.height = height;
+</script> -->
+
+<script>
+  function downloadFile(outputfile) {
+    const fileUrl = `/${outputfile}`; // Replace with your file URL
+    console.log(fileUrl)
+    const fileName = fileUrl.split("/")[3]; // Specify the desired filename
+    console.log(fileName)
+
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = fileName;
+    link.click();
+  }
+</script>
+
+
+{% endblock %}
