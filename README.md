@@ -18,7 +18,6 @@ pip install flask rembg werkzeug
 ## Project Structure
 
 ```Structure
-.
 ├── main.py
 ├── static/
 │   ├── upload/
@@ -43,7 +42,7 @@ mkdir -p static/upload static/opl templates
 3. Run the Flask application:
 
 ```bash
-python filename-main.py
+python main.py
 ```
 
 4. Open the app in your browser:
